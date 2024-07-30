@@ -28,13 +28,32 @@ export class Weather {
     }
 }
 
-class Day {
+export class Day {
     constructor(apiData) {
         this.date = apiData.datetimeEpoch;
         this.currentWeather = apiData.conditions;
         this.currentWeatherIcon = apiData.icon;
         this.temperature = apiData.temp;
         this.feelsLike = apiData.feelslike;
-        this.dewpoint = apiData.dew;
+    }
+
+    getDate() {
+        return this.date;
+    }
+
+    getCurrentWeather() {
+        return this.currentWeather;
+    }
+
+    getCurrentWeatherIcon() {
+        return this.currentWeatherIcon;
+    }
+
+    getTemperature() {
+        return this.temperature;
+    }
+
+    getFeelsLike() {
+        return this.feelsLike;
     }
 }

@@ -1,14 +1,12 @@
 import "./index.css";
 import { getWeather } from "./api";
 import { Weather } from "./weather";
+import { renderDay } from "./domRender";
 
-console.log('Hello Webpack!');
+const currentDay = document.querySelector('#currentDay');
 
-let localWeather = await getWeather("Cincinnat");
+let localWeather = await getWeather("Cincinnati");
 console.log(localWeather);
 let weatherClass = new Weather(localWeather);
-console.log(weatherClass);
-let londonWeather = await getWeather("London");
-console.log(londonWeather);
-weatherClass.setNewCity(londonWeather);
-console.log(weatherClass);
+let currentDayDiv = renderDay(weatherClass.currentDay);
+currentDay.appendChild(currentDayDiv);
