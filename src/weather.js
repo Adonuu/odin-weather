@@ -1,5 +1,6 @@
 export class Weather {
     constructor(apiData) {
+        this.currentCity = apiData.address;
         this.currentDay = new Day(apiData.currentConditions);
         this.nextWeek = this.createNextWeek(apiData.days.slice(1, 8));
     }
@@ -8,12 +9,22 @@ export class Weather {
         return apiData.map(dayData => new Day(dayData));
     }
 
+    getCurrentCity() {
+        return this.currentCity;
+    }
+
     getCurrentDay() {
         return this.currentDay();
     }
 
     getNextWeek() {
         return this.nextWeek;
+    }
+
+    setNewCity(apiData) {
+        this.currentCity = apiData.address;
+        this.currentDay = new Day(apiData.currentConditions);
+        this.nextWeek = this.createNextWeek(apiData.days.slice(1, 8));
     }
 }
 
