@@ -1,3 +1,4 @@
+// converts date time epoch to a string telling the day of the week
 export function convertEpochToDayOfWeek(epoch) {
     let date = new Date(epoch * 1000);
 

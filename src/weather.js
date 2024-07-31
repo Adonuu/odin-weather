@@ -1,3 +1,4 @@
+// class used for storing relavent information from the api query
 export class Weather {
     constructor(apiData) {
         this.currentCity = apiData.address;
@@ -40,6 +41,8 @@ export class Weather {
     }
 }
 
+// class to store weather information for each day
+// makes it easier to ensure each day is the same
 export class Day {
     constructor(apiData) {
         this.date = apiData.datetimeEpoch;

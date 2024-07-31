@@ -26,9 +26,10 @@ body {
 #search {
     grid-area: search;
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column;
     justify-content: center;
-    height: 50px;
+    align-items: center;
+    height: 100px;
 }
 
 #cityInfo {
@@ -119,4 +120,15 @@ body {
 #search-button svg {
     stroke: currentColor;
     fill: none;
+}
+
+#error-message {
+    position: absolute;
+    top: 10%;
+    left: 0;
+    right: 0;
+    color: red;
+    margin-top: 10px; /* Margin above the error message */
+    font-weight: bold;
+    text-align: center; /* Center text alignment */
 }
