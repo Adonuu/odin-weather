@@ -7,18 +7,20 @@ body {
     height: 100vh;
     overflow: hidden;
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 1fr 3fr 3fr;
     grid-template-areas: 
-    "search search search search search search"
-    "cityInfo . . . . currentDay"
-    "nextWeek0 nextWeek1 nextWeek2 nextWeek3 nextWeek4 nextWeek5";
+    "search search"
+    "cityInfo today"
+    "nextWeek nextWeek";
 }
 
 .day {
     width: 16em;
     height: 10em;
-    align-self: center;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 10px;
 }
 
 #search {
@@ -27,32 +29,52 @@ body {
 
 #cityInfo {
     grid-area: cityInfo;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: start;
+    gap: 10px;
+}
+
+#cityName {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+#cityLatitude {
+    padding-left: 30px;
+}
+
+#cityLongitude{
+    padding-left: 30px;
 }
 
 #currentDay {
     grid-area: currentDay;
 }
 
-#nextWeek0 {
-    grid-area: nextWeek0;
+#nextWeek {
+    grid-area: nextWeek;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 1fr 3fr;
+    gap: 10px;
 }
 
-#nextWeek1 {
-    grid-area: nextWeek1;
+#nextWeekTitle {
+    grid-column: span 6;
+    border-bottom: 2px solid white;
+    align-self: flex-end;
+    font-size: 2rem;
+    font-weight: bold;
 }
 
-#nextWeek2 {
-    grid-area: nextWeek2;
+#todayWeather {
+    margin-top: 10px;
+    font-size: 2rem;
+    font-weight: bold;
 }
 
-#nextWeek3 {
-    grid-area: nextWeek3;
-}
-
-#nextWeek4 {
-    grid-area: nextWeek4;
-}
-
-#nextWeek5 {
-    grid-area: nextWeek5;
+#today {
+    grid-area: today;
+    justify-self: end;
 }

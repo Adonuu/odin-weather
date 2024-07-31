@@ -4,11 +4,17 @@ import { Weather } from "./weather";
 import { renderDay } from "./domRender";
 
 const currentDay = document.querySelector('#currentDay');
+const cityName = document.querySelector('#cityName');
+const cityLatitude = document.querySelector('#cityLatitude');
+const cityLongitude = document.querySelector('#cityLongitude');
 
 let localWeather = await getWeather("Cincinnati");
 let weatherClass = new Weather(localWeather);
 let currentDayDiv = renderDay(weatherClass.getCurrentDay());
 currentDay.appendChild(currentDayDiv);
+cityName.innerHTML = weatherClass.getCurrentCity();
+cityLatitude.innerHTML = 'Latitude: ' + weatherClass.getCityLatitude();
+cityLongitude.innerHTML = 'Longitude: ' + weatherClass.getCityLongitude();
 
 for (let i = 0; i < 6; i++) {
     let nextWeekDiv = renderDay(weatherClass.getNextWeek()[i]);
