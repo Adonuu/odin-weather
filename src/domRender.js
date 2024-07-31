@@ -4,23 +4,22 @@ import { convertEpochToDayOfWeek } from "./date";
 export function renderDay(Day) {
     let baseDiv = document.createElement('div');
     baseDiv.style.display = 'grid';
-    baseDiv.style.gridTemplateColumns = '2fr 1fr';
+    baseDiv.style.gridTemplateColumns = '1fr 1fr';
     baseDiv.style.gridTemplateRows = '2fr 1fr 1fr';
     baseDiv.style.gap = '0.2em';
     baseDiv.style.width = '100%';
     baseDiv.style.height = '100%';
     let iconDiv = document.createElement('div');
     iconDiv.id = convertEpochToDayOfWeek(Day.getDate());
-    console.log(`https://raw.githubusercontent.com/visualcrossing/WeatherIcons/main/SVG/2nd%20Set%20-%20Monochrome/${Day.getCurrentWeatherIcon()}.svg`);
     changeSVGToWhite(`https://raw.githubusercontent.com/visualcrossing/WeatherIcons/main/SVG/2nd%20Set%20-%20Monochrome/${Day.getCurrentWeatherIcon()}.svg`, convertEpochToDayOfWeek(Day.getDate()));
-    iconDiv.style.width = '100%';
-    iconDiv.style.height = '100%';
+    iconDiv.style.width = '80px';
+    iconDiv.style.height = '80px';
     iconDiv.style.stroke = 'white';
-    iconDiv.alt = Day.getCurrentWeatherIcon();
     baseDiv.appendChild(iconDiv);
     let dayDiv = document.createElement('div');
     dayDiv.innerHTML = convertEpochToDayOfWeek(Day.getDate());
     dayDiv.style.alignSelf = 'center';
+    dayDiv.style.textAlign = 'left';
     dayDiv.style.fontWeight = 'bold';
     dayDiv.style.fontSize = '1.5rem';
     baseDiv.appendChild(dayDiv);
@@ -72,7 +71,6 @@ async function changeSVGToWhite(svgUrl, containerId) {
         const element = svgData.documentElement;
     
         const lines = element.querySelectorAll('*');
-        console.log(lines);
         lines.forEach((val) => {
             val.setAttribute('stroke', 'white');
             val.setAttribute('fill', 'white');

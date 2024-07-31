@@ -3,12 +3,56 @@ body {
     background-color: #135C5D;
     color: white;
     margin: 0;
-    padding: 0;
+    padding: 1em;
     height: 100vh;
     overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 1fr 3fr 3fr;
+    grid-template-areas: 
+    "search search search search search search"
+    "cityInfo . . . . currentDay"
+    "nextWeek0 nextWeek1 nextWeek2 nextWeek3 nextWeek4 nextWeek5";
 }
 
 .day {
-    width: 15em;
+    width: 16em;
     height: 10em;
+    align-self: center;
+}
+
+#search {
+    grid-area: search;
+}
+
+#cityInfo {
+    grid-area: cityInfo;
+}
+
+#currentDay {
+    grid-area: currentDay;
+}
+
+#nextWeek0 {
+    grid-area: nextWeek0;
+}
+
+#nextWeek1 {
+    grid-area: nextWeek1;
+}
+
+#nextWeek2 {
+    grid-area: nextWeek2;
+}
+
+#nextWeek3 {
+    grid-area: nextWeek3;
+}
+
+#nextWeek4 {
+    grid-area: nextWeek4;
+}
+
+#nextWeek5 {
+    grid-area: nextWeek5;
 }
