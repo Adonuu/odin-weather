@@ -25,6 +25,10 @@ body {
 
 #search {
     grid-area: search;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    height: 50px;
 }
 
 #cityInfo {
@@ -77,4 +81,42 @@ body {
 #today {
     grid-area: today;
     justify-self: end;
+}
+
+#search-form {
+    display: flex;
+    align-items: center;
+    border: 2px solid #ccc;
+    border-radius: 25px;
+    padding: 5px;
+    background: transparent;
+    width: 300px;
+}
+
+#search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: white;
+    font-size: 16px;
+    padding: 5px 10px;
+}
+
+#search-input::placeholder {
+    color: white;
+}
+
+#search-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    outline: none;
+    color: white;
+}
+
+#search-button svg {
+    stroke: currentColor;
+    fill: none;
 }
